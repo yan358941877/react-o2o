@@ -5,10 +5,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
-// var nodeModulesPath = path.resolve(__dirname, 'node_modules')
-// console.log(process.env.NODE_ENV)
 
 module.exports = {
+    // 由于是单页面应用，所有只有一个入口文件
     entry: path.resolve(__dirname, 'app/index.jsx'),
     output: {
         path: __dirname + "/build",
