@@ -1,4 +1,5 @@
 var path = require('path')
+// 只要package中指明的依赖项，都可以使用require的方式进行引用
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -14,6 +15,8 @@ module.exports = {
         filename: "bundle.js"
     },
 
+    //resolve属性中的extensions数组中用于配置程序可以自行补全哪些文件后缀,如果没有写明后缀，
+    // 则会按照extensions中的顺序依次查找以''、js、jsx后缀的文件
     resolve:{
         extensions:['', '.js','.jsx']
     },
@@ -30,7 +33,7 @@ module.exports = {
     },
 
     eslint: {
-        configFile: '.eslintrc' // Rules for eslint
+        configFile: '.eslintrc' // .eslintrc文件中指明了应用规则
     },
 
     postcss: [
@@ -38,7 +41,7 @@ module.exports = {
     ],
 
     plugins: [
-        // html 模板插件
+        // html 模板插件，webpack会自动将js、css文件插入到指定的文件中
         new HtmlWebpackPlugin({
             template: __dirname + '/app/index.tmpl.html'
         }),
@@ -51,8 +54,10 @@ module.exports = {
           url: 'http://localhost:8080'
         }),
 
+        // 在前端代码中设置一个全局变量 __DEV__
         // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
         new webpack.DefinePlugin({
+            //process.env.NODE_ENV是nodejs中的一个变量，是在运行npm run start/npm run build时设置的
           __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
         })
     ],
