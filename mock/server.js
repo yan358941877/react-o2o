@@ -13,6 +13,21 @@ router.get('/api/homead', function *(next){
     const ads = require('./home/ad.js')
     this.body = ads
 })
+
+const guessDatas = require('./home/guess.js')
+router.get('/api/guessDatas/:cityName/:page', function *(next){
+    const params = this.params
+    console.log(params.cityName)
+    console.log(params.page)
+    if(params.page == 6){
+        guessDatas.hasMore = false
+    }else {
+        guessDatas.hasMore = true
+    }
+    this.body = guessDatas
+})
+
+
 app.use(router.routes()).use(router.allowedMethods())
 
 // 监听3000端口
