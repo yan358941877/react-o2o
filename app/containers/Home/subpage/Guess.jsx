@@ -2,6 +2,7 @@ import React from 'react'
 import './style.less'
 import {getGuessDatas} from '../../../fetch/home'
 import ShowList from '../../../components/ShowList'
+import LoadMore from '../../../components/LoadMore'
 class Guess extends React.Component{
     constructor(props){
         super(props)
@@ -15,6 +16,7 @@ class Guess extends React.Component{
     componentDidMount(){ 
        this.sendRequest()
     }
+
     sendRequest(){
         if(this.state.isLoading){
             return 
@@ -36,23 +38,22 @@ class Guess extends React.Component{
                 page: this.state.page+1,
                 isLoading: false
             })
+            if(!json.hasMore){
+                window.onscroll = null
+            }
         })
+        
     }
     render(){
         return (
             <div id="guess-container">
                 <h2>猜你喜欢</h2>
                 {
-                    this.state.isLoading
-                    ? <p className="info">loading...</p>
-                    : <ShowList data = {this.state.data} />
+                    this.state.data.length
+                    ? <ShowList data = {this.state.data} />
+                    : <p className="info">loading...</p>
                 }
-                {
-                    this.state.hasMore
-                    ? <p>loading...</p>
-                    : ''
-                }
-                
+                <LoadMore hasMore={this.state.hasMore} sendRequest={this.sendRequest.bind(this)}/>
             </div>
         )
     }
