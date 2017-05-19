@@ -22,6 +22,7 @@ class App extends React.Component {
         if(!cityName){
             cityName = '北京'
         }
+     
         // 将cityName存入store的userinfo中
         this.props.operateUserinfo.update({
             cityName
