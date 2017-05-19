@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props)
+        
         // 从localStorage获取城市信息
         let cityName = localStorage.getItem('cityName')
         if(!cityName){
@@ -37,7 +37,7 @@ class App extends React.Component {
             <div>
             {
                 this.state.initDone
-                ? <h1>{this.state.cityName}</h1>
+                ? this.props.children
                 : <p>loading....</p>
             }
             </div>
@@ -52,7 +52,9 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch)=>{
     return {
         // 生成对userinfo修改的方法,看bindActionCreators的源码，仔细了解其原理
+        // actionCreator_userinfo中包含了多少actionCreator，则operateUserInfo中就会有多少个对应的方法
         operateUserinfo: bindActionCreators(actionCreator_userinfo, dispatch)
+        
     }
 }
 

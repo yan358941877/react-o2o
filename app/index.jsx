@@ -5,6 +5,9 @@ import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'
 import RouterMap from './router/RouterMap'
 
+import './static/css/common.less'
+import './static/css/font.css'
+
 let initState = {}
 const store = configureStore(initState)
 
