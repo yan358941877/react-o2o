@@ -15,7 +15,7 @@ class HomeHeader extends React.Component{
                 <div className="header-input">
                     <div className="search-container">
                         <i className="icon-search"></i>
-                        <input type="text" />
+                        <input type="text" placeholder="请输入关键词"/>
                     </div>
                 </div>
             </div>

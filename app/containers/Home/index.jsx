@@ -9,12 +9,14 @@ import './style.less'
 
 /*component*/
 import HomeHeader from '../../components/HomeHeader'
+import Category from '../../components/Category'
 
 class Home extends React.Component{
     render(){
         return (
             <div id="home">
                 <HomeHeader cityName={this.props.userinfo.cityName} />
+                <Category />
             </div>
         )
     }
