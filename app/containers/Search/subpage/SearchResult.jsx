@@ -13,20 +13,36 @@ class SearchResult extends React.Component{
             hasMore: false,
             page: 0,
             isLoading: false,
-            data: []
+            data: [],
+            a: 0
         }
+
     }
-    componentDidMount(){ 
-       this.sendRequest()
-    }
-    componentWillUpdate(prevProps, prevState){
+    // componentDidMount(){ 
+    //    this.sendRequest()
+    // }
+    
+    // componentWillReceiveProps(){
+    //     this.setState({
+    //         a: 5
+    //     })
+    // }
+    // shouldComponentUpdate(nextProps, nextState){
+    //     console.log('bbb'+ this.state.a)
+    //     console.log('aa'+nextState.a)
+    //     return true
+    // }
+    // 当用户在输入框中输入了关键字，则Search组件的状态发生变化，导致组件的更新，进而导致当前组件的更新
+    // 由于用户要搜索新的内容，因此，当前组件中展现的内容应该全部删除，重新请求新的数据
+    componentDidUpdate(prevProps, prevState){
+        // 在componetDidUpdate中，this.props是更新过后的props
+
         const category = this.props.category
         const keyword = this.props.keyword
-
         if(category===prevProps.category&& keyword===prevProps.keyword){
             return 
         }else {
-            console.log('new keyword')
+            
             this.setState({
                 data: [],
                 page: 0

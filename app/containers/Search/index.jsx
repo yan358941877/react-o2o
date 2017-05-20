@@ -11,12 +11,15 @@ class Search extends React.Component{
             keyword: this.props.params.keyword
         }
     }
-    changeState(category, keyword){
+    changeState(keyword){
         this.setState({
+             category: 'input',
              keyword
         })
     }
+
     render(){
+
         let category = this.state.category
         let keyword = this.state.keyword
         return (
