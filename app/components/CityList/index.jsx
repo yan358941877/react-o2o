@@ -6,7 +6,7 @@ class CityList extends React.PureComponent {
         const cityName = event.target.innerText
        
         if(this.props.changeCity){
-            this.props.changeCity({cityName})
+            this.props.changeCity(cityName)
         }
         window.history.back()
     }

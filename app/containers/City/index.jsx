@@ -22,7 +22,7 @@ class City extends React.Component{
             <div id="choose-city">
                 <CommonHeader title='选择城市'/>
                 <CurrentCity cityName= {this.props.userinfo.cityName} />
-                <CityList changeCity= {this.props.operateUserinfo.update}/>
+                <CityList changeCity= {this.props.operateUserinfo.updateCityName}/>
             </div>
         )
     }
