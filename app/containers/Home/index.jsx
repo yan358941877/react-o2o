@@ -16,7 +16,7 @@ class Home extends React.Component{
     render(){
         return (
             <div id="home">
-                <HomeHeader cityName={this.props.userinfo.cityName} />
+                <HomeHeader cityName={this.props.userinfo.cityName} linkto='/search/input/'/>
                 <Category />
                 <Ad />
                 <Guess cityName={this.props.userinfo.cityName}/>

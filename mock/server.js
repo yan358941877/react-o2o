@@ -27,6 +27,21 @@ router.get('/api/guessDatas/:cityName/:page', function *(next){
     this.body = guessDatas
 })
 
+const searchResult = require('./search/searchResult.js')
+router.get('/api/search/:category/:keyword/:page', function *(next){
+    const params = this.params
+    console.log(params.categoty)
+    console.log(params.keyword)
+    console.log(params.page)
+
+    if(params.page == 6){
+        searchResult.hasMore = false
+    }else {
+        searchResult.hasMore = true
+    }
+    this.body = searchResult
+})
+
 
 app.use(router.routes()).use(router.allowedMethods())
 
