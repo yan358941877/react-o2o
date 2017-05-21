@@ -7,3 +7,10 @@ export function updateCityName(data){
         data: data
     }
 }
+
+export function userLogin(data){
+    return {
+        type: actionTypes.USER_LOGIN,
+        data: data
+    }
+}

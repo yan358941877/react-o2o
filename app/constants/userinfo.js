@@ -3,3 +3,4 @@
 */
 // 用户信息的更新，例如切换城市
 export const USERINFO_UPDATE_CITYNAME = "USERINFO_UPDATE_CITYNAME"
+export const USER_LOGIN = 'USER_LOGIN'

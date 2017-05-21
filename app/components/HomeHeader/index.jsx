@@ -35,7 +35,7 @@ class HomeHeader extends React.Component{
                     </Link>
                 </div>
                 <div className="float-right userinfo">
-                    <i className="icon-user"></i>
+                    <Link to='/user'><i className="icon-user"></i></Link>
                 </div>
                 <div className="header-input">
                     <div className="search-container">
