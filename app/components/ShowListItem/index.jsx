@@ -1,10 +1,13 @@
 import React from 'react'
 import './style.less'
 
+import {Link} from 'react-router'
 class ShowListItem extends React.PureComponent {
     render() {
         const data = this.props.data
+//        console.log(data)
         return (
+            <Link to={'/detail/'+data.id}>
             <div className='show-list-item clear-fix'>
                 <div className="item-img float-left">
                     <img src={data.img} alt={data.title}/>
@@ -17,6 +20,7 @@ class ShowListItem extends React.PureComponent {
                     <span className="item-number">已售 {data.mumber}</span>
                 </div>
             </div>
+            </Link>
         )
 
     }

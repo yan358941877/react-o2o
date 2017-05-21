@@ -42,6 +42,18 @@ router.get('/api/search/:category/:keyword/:page', function *(next){
     this.body = searchResult
 })
 
+/* 处理商家详情请求*/
+const sellerInfo = require('./detail/seller.js')
+router.get('/api/detail/:id', function *(next){
+    const params = this.params
+    const id = params.id
+
+    /*
+    根据id值，对店铺信息进行查找
+    */
+    this.body = sellerInfo
+})
+
 
 app.use(router.routes()).use(router.allowedMethods())
 

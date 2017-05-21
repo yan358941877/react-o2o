@@ -18,9 +18,9 @@ class SearchResult extends React.Component{
         }
 
     }
-    // componentDidMount(){ 
-    //    this.sendRequest()
-    // }
+    componentDidMount(){ 
+       this.sendRequest()
+    }
     
     // componentWillReceiveProps(){
     //     this.setState({
@@ -57,7 +57,7 @@ class SearchResult extends React.Component{
         this.setState({
             isLoading: true
         })
-        const response = getSearchResult(this.props.category, this.state.keyword, this.state.page)
+        const response = getSearchResult(this.props.category, this.props.keyword, this.state.page)
         this.handleResponse(response)
     }
     handleResponse(response){
