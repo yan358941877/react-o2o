@@ -54,6 +54,23 @@ router.get('/api/detail/:id', function *(next){
     this.body = sellerInfo
 })
 
+/* 处理商家评价请求 */
+const comments = require('./detail/comment.js')
+router.get('/api/detail/comment/:id/:page', function *(next){
+    const params = this.params
+    const id = params.id
+    const page = params.page
+
+    /*
+    根据id值和page值，查找对应的comment信息
+    */
+    if(params.page == 4){
+        comments.hasMore = false
+    }else {
+        comments.hasMore = true
+    }
+    this.body = comments
+})
 
 app.use(router.routes()).use(router.allowedMethods())
 
