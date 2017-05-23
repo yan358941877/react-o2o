@@ -9,6 +9,7 @@ import City from '../containers/City/'
 import Search from '../containers/Search/'
 import Detail from '../containers/Detail'
 import User from '../containers/User'
+import Login from '../containers/Login'
 /* components */
 import NotFound from '../components/NotFound'
 import Test from '../components/Test'
@@ -23,6 +24,7 @@ class RouterMap extends React.Component{
                     <Route path='/search/:category(/:keyword)' component={Search} />
                     <Route path='/detail/:id' component={Detail}/>
                     <Route path='/user' component={User} />
+                    <Route path='/login' component={Login} />
                     <Route path='*' component={NotFound} />
                 </Route>
             </Router>

@@ -3,6 +3,7 @@ import './style.less'
 
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import {hashHistory} from 'react-router'
 
 import * as actionCreator_userinf from '../../../actions/userinfo'
 import * as actionCreator_collect from '../../../actions/collect'
@@ -35,12 +36,21 @@ class BuyAndCollect extends React.Component{
             })
         }
     }
+
     checkLogin(){
         const username = this.props.userinfo.username
         if(!username){
             return false
         }else {
             return true
+        }
+    }
+    handleClickBuy(event){
+        if(this.checkLogin()){
+            alert('购买成功')
+        }else{
+            // 跳转到登录页面进行登录
+            hashHistory.push('/login')
         }
     }
     handleClickCollect(event){
@@ -72,7 +82,11 @@ class BuyAndCollect extends React.Component{
                         : '收藏'
                     }
                 </span>
-                <span className='buy'>购买</span>
+                <span 
+                    className='buy'
+                    onClick={this.handleClickBuy.bind(this)}>
+                    购买
+                </span>
             </div>
         )
     }

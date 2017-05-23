@@ -4,7 +4,9 @@ import './style.less'
 /* module */
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
+import {hashHistory} from 'react-router'
 import * as actionCreator_userinfo from '../../actions/userinfo'
+
 /* components*/
 import Login from './subpage/Login'
 import Profile from './subpage/Profile'
@@ -14,7 +16,7 @@ class User extends React.Component{
         super(props)
         
     }
-
+   
     render(){
         return (
             <div id='user-page'>
