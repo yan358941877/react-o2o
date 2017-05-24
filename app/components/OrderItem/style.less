@@ -1,5 +1,5 @@
 .order-item {
-    padding: 1rem 0;
+    padding: 1rem 0 0 0;
     margin: 0 1rem;
     border-top: 1px solid #ccc;
     .order-item-img {
@@ -19,12 +19,23 @@
     .order-item-comment{
         width: 20%;
         text-align: center;
-        p {
+        p.no-comment {
             margin-top: 2rem;
             height: 2rem;
             line-height: 2rem;
             color: #fff;
             background-color: #ec1b38;
         }
+        p.has-comment {
+            margin-top: 2rem;
+            height: 2rem;
+            line-height: 2rem;
+            color: #fff;
+            background-color: #ccc;
+        }
+    }
+    .order-item-evaluate {
+        clear: both;
+        padding-top: 0.7rem;
     }
 }

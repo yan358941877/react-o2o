@@ -40,14 +40,14 @@ class Profile extends React.Component{
             <div id='login-page'>
                 <CommonHeader title='用户主页' />
                 <div id="user-profile">
-                    <p>
+                    <div>
                         <i className="icon-user"></i>
-                        {this.props.username}
-                    </p>
-                    <p>
+                        <span>{this.props.username}</span>
+                    </div>
+                    <div>
                         <i className="icon-map-marker"></i>
-                        {this.props.cityName}
-                    </p>
+                        <span>{this.props.cityName}</span>
+                    </div>
                 </div>
                 <OrderList data={this.state.data}/>
             </div>

@@ -12,7 +12,7 @@ class OrderList extends React.PureComponent{
                 <div id='order-list'>
                     {
                         this.props.data.map((item, index)=>{
-                            return <OrderItem data={item} />
+                            return <OrderItem data={item} key={index}/>
                         })
                     }
                 </div>
