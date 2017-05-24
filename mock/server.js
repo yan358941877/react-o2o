@@ -82,6 +82,16 @@ router.get('/api/order/:username', function *(next){
     this.body = orderlist
 })
 
+/* 用户提交订单评价 */
+router.post('/api/submitComment', function *(next){
+    console.log('提交评论')
+
+    this.body = {
+        error: 0,
+        msg: 'ok'
+    }
+})
+
 app.use(router.routes()).use(router.allowedMethods())
 
 // 监听3000端口

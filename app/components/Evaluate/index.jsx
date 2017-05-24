@@ -16,6 +16,7 @@ class Evaluate extends React.PureComponent{
     handleSubmitEvaluate(){
         const evaluate_content = this.state.content
         if(this.props.handleSubmitEvaluate){
+            console.log('aaaaaaaa')
             this.props.handleSubmitEvaluate(evaluate_content)
         }
     }

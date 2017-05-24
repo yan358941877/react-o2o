@@ -5,7 +5,7 @@ import './style.less'
 import CommonHeader from '../../../components/CommonHeader'
 import OrderList from '../../../components/OrderList'
 
-import {getOrderList} from '../../../fetch/order'
+import {getOrderList, postComment} from '../../../fetch/order'
 class Profile extends React.Component{
     constructor(props){
         super(props)
@@ -35,6 +35,20 @@ class Profile extends React.Component{
             })
         })
     }
+
+    // 提交 评论
+    sendComment(id, comment,onSuccess, onFail){
+        const response = postComment(id, comment)
+        response.then(res=>{
+            return res.json()
+        }).then(json=>{
+            if(json.msg == 'ok'){
+                onSuccess()
+            }else {
+                onFail()
+            }
+        })
+    }   
     render(){
         return (
             <div id='login-page'>
@@ -49,7 +63,7 @@ class Profile extends React.Component{
                         <span>{this.props.cityName}</span>
                     </div>
                 </div>
-                <OrderList data={this.state.data}/>
+                <OrderList data={this.state.data} sendComment={this.sendComment.bind(this)}/>
             </div>
         )
     }

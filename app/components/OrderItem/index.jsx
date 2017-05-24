@@ -10,6 +10,9 @@ class OrderItem extends React.PureComponent {
         this.state = {
             commentState: this.props.data.commentState
         }
+
+        this.submitCommentSuccess = this.submitCommentSuccess.bind(this)
+        this.submitCommentFail = this.submitCommentFail.bind(this)
     }
     componentWillMount() {
         if (this.props.commentState == 1) {
@@ -34,11 +37,26 @@ class OrderItem extends React.PureComponent {
         })
     }
     handleSubmitEvaluate(evaluate_content){
+        const id = this.props.data.id
+
         // 提交评价内容到服务器
-        console.log('orderItem   ', evaluate_content)
+        console.log(this.props.sendComment)
+       if(this.props.sendComment){
+           console.log(evaluate_content)
+           this.props.sendComment(id, evaluate_content, this.submitCommentSuccess, this.submitCommentFail)
+       }
         // 修改组件状态
+        
+    }
+
+    submitCommentSuccess(){
         this.setState({
             commentState: 2
+        })
+    }
+    submitCommentFail(){
+        this.setState({
+            commentState: 0
         })
     }
     render() {
