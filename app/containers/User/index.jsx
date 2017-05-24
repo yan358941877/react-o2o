@@ -21,7 +21,7 @@ class User extends React.Component{
         return (
             <div id='user-page'>
                 {
-                    !this.props.username
+                     this.props.username
                     ? <Profile username={this.props.username} cityName={this.props.cityName}/>
                     : <Login handleLogin={this.props.operateUserinfo.userLogin}/>
                 }

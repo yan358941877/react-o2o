@@ -40,9 +40,9 @@ class OrderItem extends React.PureComponent {
         const id = this.props.data.id
 
         // 提交评价内容到服务器
-        console.log(this.props.sendComment)
+       //console.log(this.props.sendComment)
        if(this.props.sendComment){
-           console.log(evaluate_content)
+           //console.log(evaluate_content)
            this.props.sendComment(id, evaluate_content, this.submitCommentSuccess, this.submitCommentFail)
        }
         // 修改组件状态
@@ -55,6 +55,7 @@ class OrderItem extends React.PureComponent {
         })
     }
     submitCommentFail(){
+        alert('提交评论失败，请稍后再次提交')
         this.setState({
             commentState: 0
         })
