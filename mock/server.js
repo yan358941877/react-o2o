@@ -72,6 +72,16 @@ router.get('/api/detail/comment/:id/:page', function *(next){
     this.body = comments
 })
 
+/* 查询用户订单 */
+const orderlist = require('./orderlist/orderList.js')
+router.get('/api/order/:username', function *(next){
+    const params = this.params
+    const username = params.username
+
+    /*查询用户订单操作*/
+    this.body = orderlist
+})
+
 app.use(router.routes()).use(router.allowedMethods())
 
 // 监听3000端口
